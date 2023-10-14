@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="John Mengo">
+    <meta name="description" content="">
+    <title>GameVerse</title>
+    <link rel="stylesheet" href="stingo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" href="logo/rockstaricon.jpg" type="image/x-icon">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header class="header">
+        <section class="container">
+            <section class="navbar">
+                <aside class="logo">
+                    <img src="logo/logoicon.jpg"  width="125px">
+                </aside>
+                <nav>
+                    <ul id="MenuItems">
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Products</a></li>
+                        <li><a href="">Contact</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Account</a></li>
+                    </ul>
+                </nav>
+                <img src="Image/shoppingbag.png" width="30px" height="30px">
+                <img src="Image/menuicon.png" class="me nu-icon" onclick="menutoggle()" >
+            </section>
+    
+        </section>
+    </header>
+
+<!-----account page----->
+<div class="account-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+                <img src="logo/Rlogo.jpg" width="100%">
+            </div>
+            <div class="col-2">
+                <div class="form=container">
+
+                    <div class="form-btn">
+                        <span>Login</span>
+                        <span>Register</span>
+                    </div>
+                    <form id="LoginForm">
+                        <input type="text" placeholder="Username">
+                        <input type="password" placeholder="Password">
+                        <button type="submit" class="btn"> Login</button>
+                        <a href="">Forgot password</a>
+                    </form>
+                    <form id="RegisterForm" >
+                        <input type="text" placeholder="Username">
+                        <input type="email" placeholder="Email">
+                        <input type="password" placeholder="Password">
+                        <button type="submit" class="btn"> Register</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+    <!--------footer---->
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col-1">
+                <h3>Download Our App</h3>
+                <p>Download App for Android and IOS mobile phone</p>
+                <div class="app-logo">
+                    <img src="logo/ps5.jpg" >
+                    <img src="logo/xbox.jpg">
+                </div>
+            </div>
+            <div class="footer-col-2">
+                <img src="logo/Rlogo.jpg" height="300" width="300">
+                <p>&copy; 2023 GameHub. All Rights Reserved.</p>
+            </div>
+        
+        <div class="footer-col-3">
+            <h3>Useful Links</h3>
+            <ul>
+                <li>Coupons</li>
+                <li>Blog Post</li>
+                <li>Return Ploicy</li>
+            </ul>
+        </div>
+        <div class="footer-col-4">
+            <h3>Follow Us</h3>
+            <ul>
+                <li><i class="fa fa-facebook-official"  ></i>Facebook</li>
+                <br>
+                <li><i class="fa fa-twitter-square"></i>Twitter</li>
+                <br>
+                <li><i class="fa fa-instagram" ></i>Instagram</li>
+            </ul>
+        </div>
+    </div>
+        <hr>
+        <p class="copyright">&copy;Copyright 2023</p>
+    </div>
+</div>
+<!----js for toggle menu----->
+<script>
+    var MenuItems= document.getElementById("MenuItems");
+    MenuItems.style.maxHeight="0px";
+    function menutoggle(){
+        if(MenuItems.style.maxHeight=="0px")
+        {
+            MenuItems.style.maxHeight="200px";
+        }
+        else
+        {
+            MenuItems.sty.maxHeight="0px";          
+        }
+    }
+</script>
+</body>
+</html>
