@@ -6,6 +6,7 @@
 body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background: radial-gradient(#2ecc71,#DC143C,#DCDCDC,#2337C6);
+    position: relative;
 }
 .navbar{
     display: flex;
@@ -31,6 +32,83 @@ a{
 p{
     color: #000 ;
 }
+
+.popup{
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.25);
+    width: 380px;
+    padding: 20px 30px;
+    background: #fff;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+    transition: top 0ms ease-in-out 200ms;
+    transition: opacity 200ms ease-in-out 0ms;
+    transition: transform 200ms ease-in-out 0ms;
+}
+
+.popup.active{
+    top: 50vh;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    transition: top 0ms ease-in-out 0ms;
+    transition: opacity 200ms ease-in-out 0ms;
+    transition: transform 200ms ease-in-out 0ms;
+}
+
+.popup .form h2{
+    text-align: center;
+    color: #222;
+    margin: 10px 0 20px;
+    font-size: 25px;
+}
+
+.popup .form .form-element{
+    margin: 15px 0px;
+}
+
+.popup .form .form-element label{
+    font-size: 14px;
+    color: #222;
+}
+
+.popup .form .form-element input[type="email"],
+.popup .form .form-element input[type="name"],
+.popup .form .form-element input[type="password"]{
+    margin-top: 5px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+
+.popup .form .form-element input[type="checkbox"]{
+    margin-right: 5px;
+}
+
+.popup .form .form-element button{
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    background: #222;
+    color: #f5f5f5;
+    border-radius: 10px;
+}
+
+.popup .form .form-element a{
+    display: block;
+    text-align: right;
+    font-size: 15px;
+    color: #1a79ca;
+    text-decoration: none;
+    font-weight: 600;
+}
+
 .container{
     max-width:1300px;
     margin: auto;
