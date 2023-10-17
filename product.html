@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="John Mengo">
+    <meta name="description" content="">
+    <title>GameVerse</title>
+    <link rel="stylesheet" href="stingo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" href="logo/rockstaricon.jpg" type="image/x-icon">
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container">
+    <div class="navbar">
+        <aside class="logo">
+            <img src="logo/logoicon.jpg"  width="125px">
+        </aside>
+    <nav>
+        <ul id="MenuItems">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="product.html">Products</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="login.html">Account</a></li>
+        </ul>
+    </nav>
+    <img src="Image/shoppingbag.png" width="30px" height="30px">
+    <img src="Image/menuicon.png" class="me nu-icon" onclick="menutoggle()" >
+</div>
+</div>
+
+<div class="small-container">
+    <div class="row row-2">
+        <h2>All products</h2>
+        <div class="custom-select">
+             <select >
+            <option>Game of the year</option>
+            <option>Trending</option>
+            <option>Best in rating</option>
+            <option>Best in selling</option>
+        </select>
+        </div>
+       
+    </div>
+
+    <div class="row">
+    <div class="col-4">
+        <img src="productssale/callofduty.jpg" width="740" height="380">
+        <h3>Call Of Duty</h3>
+        <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+        </div>
+    <p>Price:Ksh.4500</p>
+    <button class="custom-button">Add to Cart</button>
+    </div>
+    <div class="col-4">
+        <img src="productssale/cyberpunk.jpg" width="740" height="380">
+       <h3>CyberPunk</h3>
+        <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+        </div>
+    <p>Ksh.3000</p>
+    <button class="custom-button">Add to Cart</button>
+    </div>
+    <div class="col-4">
+        <img src="productssale/fc-24.jpg" width="740" height="380">
+        <h3>FC-24</h3>
+        <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-staro"></i>
+        </div>
+    <p>Ksh.5000</p>
+    <button class="custom-button">Add to Cart</button>
+    
+    </div>
+    <div class="col-4">
+        <img src="productssale/godofwar.jpg" width="740" height="380">
+        <h3>God Of War</h3>
+        <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+        </div>
+    <p>Ksh.4000</p>
+    <button class="custom-button">Add to Cart</button>
+    </div>
+    <div class="col-4">
+        <img src="productssale/Gta5.jpg" width="740" height="380">
+        <h3>GTA V</h3>
+        <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+        </div>
+    <p>Ksh.3000</p>
+    <button class="custom-button">Add to Cart</button>
+    </div>
+    <div class="col-4">
+        <img src="productssale/Injustice 2.jpg" width="740" height="380">
+       <h3>Injustice 2</h3>
+        <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+        </div>
+    <p>Ksh.2000</p>
+    <button class="custom-button">Add to Cart</button>
+    </div>
+    <div class="col-4">
+        <img src="productssale/Minecraft.jpg" width="740" height="380">
+        <h3>Minecraft</h3>
+        <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+        </div>
+    <p>Ksh.2500</p>
+    <button class="custom-button">Add to Cart</button>
+    </div>
+    <div class="col-4">
+        <img src="productssale/nfs-heat.jpg" width="740" height="380">
+        <h3>Need For Speed Heat</h3>
+        <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+        </div>
+    <p>Ksh.3000</p>
+    <button class="custom-button">Add to Cart</button>
+</div>
+ </div>
+ <div class="row">
+    <div class="col-4">
+        <img src="productssale/nfs-payback.jpg" width="740" height="380">
+        <h3>Need For Speed Payback</h3>
+        <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+
+        </div>
+    <p>Ksh.3200</p>
+    <button class="custom-button">Add to Cart</button>
+    </div>
+    <div class="col-4">
+        <img src="productssale/nfs-rivals.jpg" width="740" height="380">
+      <h3>Need For Speed </h3>
+        <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+        </div>
+    <p>Ksh.3500</p>
+    <button class="custom-button">Add to Cart</button>
+    </div>
+    <div class="col-4">
+        <img src="productssale/nfs-unleash.jpg" width="740" height="380">
+        <h3>Need For Speed Unleash</h3>
+        <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+        </div>
+    <p>Ksh.3500</p>
+    <button class="custom-button">Add to Cart</button>
+    </div>
+    <div class="col-4">
+        <img src="productssale/Spideraman.jpg" width="740" height="380">
+        <h3>Spiderman</h3>
+        <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+        </div>
+    <p>Ksh.4500</p>
+    <button class="custom-button">Add to Cart</button>
+</div>
+
+     </div>
+     <div class="page-btn">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>&#8594;</span>
+
+     </div>
+</div>               
+
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col-1">
+                <h3>Download Our App</h3>
+                <p>Download App for Android and IOS mobile phone</p>
+                <div class="app-logo">
+                    <img src="logo/ps5.jpg" >
+                    <img src="logo/xbox.jpg">
+                </div>
+            </div>
+            <div class="footer-col-2">
+                <img src="logo/Rlogo.jpg" height="300" width="300">
+                <p>&copy; 2023 GameHub. All Rights Reserved.</p>
+            </div>
+        
+        <div class="footer-col-3">
+            <h3>Useful Links</h3>
+            <ul>
+                <li>Coupons</li>
+                <li>Blog Post</li>
+                <li>Return Ploicy</li>
+            </ul>
+        </div>
+        <div class="footer-col-4">
+            <h3>Follow Us</h3>
+            <ul>
+                <li><i class="fa fa-facebook-official" ></i>Facebook</li>
+                <br>
+                <li><i class="fa fa-twitter-square"></i>Twitter</li>
+                <br>
+                <li><i class="fa fa-instagram" ></i>Instagram</li>
+                
+            </ul>
+        </div>
+    </div>
+        <hr>
+        <p class="copyright">&copy;Copyright 2023</p>
+    </div>
+</div>
+   <script>
+    var MenuItems= document.getElementById("MenuItems");
+
+    MenuItems.style.maxHeight = "0px";
+
+    function menutoggle(){
+        if(MenuItems.style.maxHeight == "0px")
+        {
+            MenuItems.style.maxHeight = "200px"
+        }
+        else
+        {
+            MenuItems.style.maxHeight = "0px"  
+        }
+    }
+   </script>
+
+</body>
+</html>
