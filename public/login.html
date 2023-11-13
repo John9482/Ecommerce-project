@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="John Mengo">
+        <meta name="description" content="">
+        <title>GameVerse</title>
+        <link rel="stylesheet" href="stingo.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="icon" href="logo/rockstaricon.jpg" type="image/x-icon">
+    
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+<body style="background-color: unset;"> 
+                         
+    <div class="popup login-form">
+        <div class="form">
+            <h2>Log in</h2>
+            <div class="form-element">
+                <label for="email"> Email</label>
+                <input type="email" name="email" id="email" placeholder="enter email">
+            </div>
+            <div class="form-element">
+                <label for="password"> password</label>
+                <input type="password" name="password" id="password" placeholder="enter password">
+            </div>
+    
+            <div class="form-element">
+                <input type="checkbox" id="remember-me">
+                <label for="remember-me">Remember me</label>
+            </div>
+    
+            <div class="form-element">
+                <a><button type="button" id="login-btn">Sign in </button></a>
+            </div>
+    
+            <div class="form-element">
+                <a href=""> Forgot password?</a>
+            </div>
+    
+            <div class="form-element">
+                <h4>Don't have an account? <a id="show-register" href="register.html"> sign up </a></h4>
+            </div>
+            <div class="element d-flex">
+                <button id="google-btn"><i class="fa fa-google"></i></button>
+                <button id="twitter-btn"><i class="fa fa-twitter"></i></button>
+                <button id="facebook-btn"><i class="fa fa-facebook"></i></button>
+                <!-- <button>sign in with twitter</button> -->
+            </div>
+    
+        </div>
+    </div>
+
+    <!-- <script type="module" src="firebase.js"></script> -->
+    <script async type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
+        import { getDatabase, set, ref, get, child } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js";
+        import { getAuth,GoogleAuthProvider, signInWithRedirect, getRedirectResult, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
+
+        // const { initializeApp: initializeAdminApp } = ('firebase-admin/app');
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyB0cj2nhCWU6kjWRRox9h2PqQmDYbYUX5c",
+            authDomain: "gameverse-9c15b.firebaseapp.com",
+            databaseURL: "https://gameverse-9c15b-default-rtdb.firebaseio.com",
+            projectId: "gameverse-9c15b",
+            storageBucket: "gameverse-9c15b.appspot.com",
+            messagingSenderId: "200183330100",
+            appId: "1:200183330100:web:64398e87f58ba07ba6e161"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+        //Login User
+        document.getElementById('login-btn').addEventListener('click', function () {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    console.log('Login successful for user: ', user);
+                    alert('Login successful for user: ', user);
+                    // Redirect to another page or perform other actions
+                    window.location.href = 'index.html';
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.error('Login error:', errorCode, errorMessage);
+                });
+        });
+
+    </script>
+</body>
+</html>

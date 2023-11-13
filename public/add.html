@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Products</title>
+    <!-- Include Firebase JavaScript SDK -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js"></script> -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.5.0/firebase-storage.js"></script>
+    <!-- Your Firebase configuration script -->
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    
+</head>
+<body>
+    <h1>Add Products</h1>
+    <form id="product-form">
+        <div class="product-img"></div>
+        <label for="image">Product image:</label>
+        <input type="file" id="product-image" required>
+
+        <label for="name">Product Name:</label>
+        <input type="text" id="pr-name" required>
+        
+        <label for="price">Price:</label>
+        <input type="number" id="pr-price" required>
+        <button type="submit">Add Product</button>
+    </form>
+
+    <ul id="product-list">
+        <!-- Product items will be displayed here -->
+    </ul>
+
+    <div class="product-container">
+        <img id="product-image" src="" alt="Product Image">
+        <h2 id="product-name"></h2>
+        <p id="product-price"></p>
+      </div>
+
+    <!-- <script src="app.js"></script> -->
+    <!-- <script async type="module" src="firebase.js"></script> -->
+    <script async type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
+        import { getDatabase, set, ref, get, child, onValue } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js";
+        const { initializeApp: initializeAdminApp } = ('firebase-admin/app');
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyB0cj2nhCWU6kjWRRox9h2PqQmDYbYUX5c",
+            authDomain: "gameverse-9c15b.firebaseapp.com",
+            databaseURL: "https://gameverse-9c15b-default-rtdb.firebaseio.com",
+            projectId: "gameverse-9c15b",
+            storageBucket: "gameverse-9c15b.appspot.com",
+            messagingSenderId: "200183330100",
+            appId: "1:200183330100:web:64398e87f58ba07ba6e161"
+        };
+
+        const app = initializeApp(firebaseConfig);
+
+        
+        // Get a reference to the Firebase Realtime Database
+        const database = getDatabase(app);
+        const dbRef = ref(getDatabase());
+        // Get references to HTML elements
+        const productForm = document.getElementById("product-form");
+        const productList = document.getElementById("product-list");
+
+        // Event listener for form submission
+        productForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            
+            // Get product details from the form
+            const pr_img = document.getElementById("product-image").value;
+            const name = document.getElementById("pr-name").value;
+            const price = parseFloat(document.getElementById("pr-price").value);
+
+            // Add the product to the database
+            addProductToDatabase(pr_img,name, price);
+
+            alert('items added to the products list')
+            // Clear the form
+            productForm.reset();
+        });
+
+        // Function to add a product to the database
+        
+
+        // Function to add a product to the database
+        function addProductToDatabase(pr_img,name, price) {
+            // const productsRef = database.ref("products");
+            // const newProductRef = productsRef.push();
+
+            set(ref(database, 'products/' + document.getElementById("pr-name").value),
+            {
+                pr_img: document.getElementById("product-image").value,
+                name: document.getElementById("pr-name").value,
+                price: document.getElementById("pr-price").value
+            });
+            
+        }
+
+        // Event listener for changes in the database
+        // database.ref("products").on("value", (snapshot) => {
+        //     productList.innerHTML = ""; // Clear the product list
+
+        //     snapshot.forEach((productSnapshot) => {
+        //         const product = productSnapshot.val();
+        //         const productItem = document.createElement("li");
+        //         productItem.textContent = `${product.name}: $${product.price}`;
+        //         productList.appendChild(productItem);
+        //     });
+        // });
+
+        // Event listener for changes in the database
+        // onValue(ref(database, "products/",(snapshot)=>{
+        //     productList.innerHTML = ""; // Clear the product list
+
+        //     snapshot.forEach((productSnapshot) => {
+        //         const product = productSnapshot.val();
+        //         const productItem = document.createElement("li");
+        //         productItem.textContent = `${product.name}: $${product.price}`;
+        //         productList.appendChild(productItem);
+        //     });
+        // }));
+
+    </script>
+    
+</body>
+</html>

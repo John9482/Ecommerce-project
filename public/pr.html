@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</head>
+<body>
+    <h1>Products</h1>
+    <div class="d-flex container products-container" id="products-container">
+        
+    </div>
+    
+
+    <!-- <script src="products.js"></script> -->
+    <script async type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
+        import { getDatabase, set, ref, get, child, onValue} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js";
+
+        const { initializeApp: initializeAdminApp } = ('firebase-admin/app');
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyB0cj2nhCWU6kjWRRox9h2PqQmDYbYUX5c",
+            authDomain: "gameverse-9c15b.firebaseapp.com",
+            databaseURL: "https://gameverse-9c15b-default-rtdb.firebaseio.com",
+            projectId: "gameverse-9c15b",
+            storageBucket: "gameverse-9c15b.appspot.com",
+            messagingSenderId: "200183330100",
+            appId: "1:200183330100:web:64398e87f58ba07ba6e161"
+        };
+
+        // Initialize Firebase with your configuration (already included in firebase-config.js)
+        const app = initializeApp(firebaseConfig);
+
+        // Get a reference to the Firebase Realtime Database
+        const db = getDatabase(app);
+        const productRef = ref(db, "products/");
+        const cartRef = ref(db, "cart/");
+        const dbRef = ref(getDatabase());
+
+        const productsContainer = document.getElementById("products-container");
+
+        //fetch product data
+        get(child(dbRef, 'products/')).then((snapshot) => {
+            const productsData = snapshot.val();
+
+            // Update HTML elements with product data
+            if (productsData) {
+                for (const productKey in productsData){
+                    if (productsData.hasOwnProperty(productKey)) {
+                        const productData = productsData[productKey];
+
+                        //create html element for each product
+                        const productDiv = document.createElement("div");
+                        productDiv.classList.add("product/");
+                        productDiv.classList.add('card', 'p-5', 'ms-3');
+
+                        const imgElement = document.createElement("img");
+                        imgElement.src = productData.pr_img;
+                        imgElement.alt = "Product Image";
+                        imgElement.classList.add('product-image'); // Set an id
+
+                        const h2Element = document.createElement("h2");
+                        h2Element.textContent = productData.name;
+                        h2Element.classList.add("product-name"); // Set an id
+
+                        const pElement = document.createElement("p");
+                        pElement.textContent = `$${productData.price}`;
+                        pElement.classList.add("product-price"); // Set an id
+
+                        productDiv.appendChild(imgElement);
+                        productDiv.appendChild(h2Element);
+                        productDiv.appendChild(pElement);
+
+                        const cartButton = document.createElement('button');
+                        cartButton.textContent="Add to Cart";
+                        cartButton.classList.add('cart-button', 'btn', 'bg-success');
+                        productDiv.appendChild(cartButton);
+
+
+                        // Append the product element to the container
+                        productsContainer.appendChild(productDiv);                                            
+                    }
+                }
+
+                // Add an event listener to handle adding products to the cart
+                document.querySelectorAll('.cart-button').forEach((button) => {
+                            button.addEventListener('click', () => {
+                                // Retrieve product details for the clicked product
+                                const productDiv = button.closest('.products-container'); // Find the parent product container
+                                const productImage = productDiv.querySelector('.product-image');
+                                const productName = productDiv.querySelector('.product-name');
+                                const productPrice = productDiv.querySelector('.product-price');
+
+                                // Add the product to the database
+                                addProductToDatabase(productImage,productName, productPrice);
+
+                                alert('Product added to the cart!');
+                                window.location.href = 'cart.html';
+                        
+                            });
+                        });
+            } else {
+                    console.error("Product data not found in Firebase.");
+            }
+        })
+        .catch((error) => {
+            console.error("Error fetching product data: ", error);
+        });
+
+        // Function to add a product to the cart database
+        function addProductToDatabase(productImage, productName, productPrice) {
+            // const productsRef = database.ref("products");
+                            // const newProductRef = productsRef.push();
+
+            set(ref(db, 'cart/' + productName.textContent),
+                {
+                    productImage: productImage.src,
+                    productName: productName.textContent,
+                    productPrice: productPrice.textContent
+                });
+                            
+        }
+        
+        
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+</body>
+</html>
